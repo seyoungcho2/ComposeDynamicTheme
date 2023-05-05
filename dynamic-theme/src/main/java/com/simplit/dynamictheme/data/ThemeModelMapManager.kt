@@ -4,9 +4,11 @@ import com.simplit.dynamictheme.model.ThemeModel
 import com.simplit.dynamictheme.model.ThemeModelKey
 
 class ThemeModelMapManager internal constructor() {
-    private val themeModelMap = mutableMapOf<ThemeModelKey, ThemeModel>()
-
     private var defaultThemeModel = ThemeModel()
+
+    private val themeModelMap: MutableMap<ThemeModelKey, ThemeModel> = mutableMapOf(
+        ThemeModelKey.Default to defaultThemeModel
+    )
 
     fun removeThemeModel(key: ThemeModelKey) {
         themeModelMap.remove(key)
@@ -20,9 +22,14 @@ class ThemeModelMapManager internal constructor() {
         return themeModelMap[key] ?: defaultThemeModel
     }
 
-    fun getSupportedThemeModels() : Map<ThemeModelKey, ThemeModel> = themeModelMap
+    fun getSupportedThemeModels(): Map<ThemeModelKey, ThemeModel> = themeModelMap
 
     fun setDefaultThemeModel(themeModel: ThemeModel) {
         defaultThemeModel = themeModel
+        themeModelMap[ThemeModelKey.Default] = themeModel
+    }
+
+    fun getDefaultThemeModel(): ThemeModel {
+        return themeModelMap[ThemeModelKey.Default] ?: defaultThemeModel
     }
 }

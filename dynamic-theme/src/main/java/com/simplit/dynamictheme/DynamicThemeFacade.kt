@@ -17,8 +17,9 @@ class DynamicThemeFacade(
     context: Context
 ) {
     private val themeModelMapManager: ThemeModelMapManager = ThemeModelMapManager()
-    private val dynamicThemeRepository: DynamicThemeRepository = DynamicThemeRepositoryImpl(context, themeModelMapManager)
-    private val dynamicThemeProvider = DynamicThemeProvider(dynamicThemeRepository)
+    private val dynamicThemeRepository: DynamicThemeRepository =
+        DynamicThemeRepositoryImpl(context, themeModelMapManager)
+    private val dynamicThemeProvider = DynamicThemeProvider()
 
     /**
      * Provides Theme with Currently Set ThemeModel
@@ -27,7 +28,7 @@ class DynamicThemeFacade(
     fun ProvidesTheme(
         content: @Composable () -> Unit
     ) {
-        val themeModel by dynamicThemeRepository.currentThemeModel.collectAsState(ThemeModel.Default)
+        val themeModel by dynamicThemeRepository.currentThemeModel.collectAsState(themeModelMapManager.getDefaultThemeModel())
         dynamicThemeProvider.ProvidesTheme(themeModel, content)
     }
 
@@ -54,14 +55,14 @@ class DynamicThemeFacade(
     /**
      * Get ThemeModel by [key]
      */
-    fun getThemeModel(key: ThemeModelKey) : ThemeModel {
+    fun getThemeModel(key: ThemeModelKey): ThemeModel {
         return themeModelMapManager.getThemeModel(key)
     }
 
     /**
      * Get registered ThemeModels
      */
-    fun getSupportedThemeModels() : Map<ThemeModelKey,ThemeModel> {
+    fun getSupportedThemeModels(): Map<ThemeModelKey, ThemeModel> {
         return themeModelMapManager.getSupportedThemeModels()
     }
 
@@ -75,14 +76,14 @@ class DynamicThemeFacade(
     /**
      * Get currently set ThemeModel
      */
-    suspend fun getCurrentThemeModel() : ThemeModel {
+    suspend fun getCurrentThemeModel(): ThemeModel {
         return dynamicThemeRepository.currentThemeModel.first()
     }
 
     /**
      * Get currently set ThemeModel with [Flow]
      */
-    fun getCurrentThemeModelFlow() : Flow<ThemeModel> {
+    fun getCurrentThemeModelFlow(): Flow<ThemeModel> {
         return dynamicThemeRepository.currentThemeModel
     }
 

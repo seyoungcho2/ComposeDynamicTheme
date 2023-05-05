@@ -3,14 +3,9 @@ package com.simplit.dynamictheme.provider
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import com.simplit.dynamictheme.data.DynamicThemeRepository
 import com.simplit.dynamictheme.model.ThemeModel
 
-class DynamicThemeProvider internal constructor(
-    private val dynamicThemeRepository: DynamicThemeRepository
-) {
+class DynamicThemeProvider internal constructor() {
     @Composable
     fun ProvidesTheme(
         themeModel: ThemeModel,
