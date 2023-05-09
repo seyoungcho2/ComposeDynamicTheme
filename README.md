@@ -50,7 +50,7 @@ Add dependency on module level build.gradle file:
 ### build.gradle
 ```gradle
 dependencies {
-    implementation "com.github.seyoungcho2:dynamic-theme-compose:0.0.1"
+    implementation "io.github.seyoungcho2:dynamic-theme-compose:0.0.1"
 }
 ```
 If using build.gradle.kts
