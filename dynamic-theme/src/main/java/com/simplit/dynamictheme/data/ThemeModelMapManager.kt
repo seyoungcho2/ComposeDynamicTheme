@@ -3,7 +3,7 @@ package com.simplit.dynamictheme.data
 import com.simplit.dynamictheme.model.ThemeModel
 import com.simplit.dynamictheme.model.ThemeModelKey
 
-class ThemeModelMapManager internal constructor() {
+internal class ThemeModelMapManager internal constructor() {
     private var defaultThemeModel = ThemeModel()
 
     private val themeModelMap: MutableMap<ThemeModelKey, ThemeModel> = mutableMapOf(

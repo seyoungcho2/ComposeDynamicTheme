@@ -11,16 +11,16 @@ import com.simplit.dynamictheme.model.ThemeModelKey
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class DynamicThemeRepositoryImpl internal constructor(
+internal class DynamicThemeRepositoryImpl internal constructor(
     private val context: Context,
     private val themeModelMapManager: ThemeModelMapManager
 ) : DynamicThemeRepository {
     private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "theme_repository")
     private fun getData() = context.dataStore.data
 
-    override suspend fun setCurrentThemeModel(themeModelKey: ThemeModelKey) {
+    override suspend fun setCurrentThemeModel(key: ThemeModelKey) {
         context.dataStore.edit { preference ->
-            preference[CURRENT_THEME_MODEL_STRING] = themeModelKey.key
+            preference[CURRENT_THEME_MODEL_STRING] = key.key
         }
     }
 
@@ -43,7 +43,7 @@ interface DynamicThemeRepository {
     /**
      * Register Current Theme Model
      */
-    suspend fun setCurrentThemeModel(themeModelKey: ThemeModelKey)
+    suspend fun setCurrentThemeModel(key: ThemeModelKey)
 
     /**
      * Get Current Registered Theme Model

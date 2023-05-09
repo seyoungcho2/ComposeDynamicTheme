@@ -5,7 +5,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import com.simplit.dynamictheme.model.ThemeModel
 
-class DynamicThemeProvider internal constructor() {
+internal class DynamicThemeProvider internal constructor() {
     @Composable
     fun ProvidesTheme(
         themeModel: ThemeModel,
