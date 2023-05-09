@@ -1,7 +1,7 @@
 ext {
     PUBLISH_GROUP_ID = 'io.github.seyoungcho2'
     PUBLISH_VERSION = '0.0.1'
-    PUBLISH_ARTIFACT_ID = 'dynamic-theme'
+    PUBLISH_ARTIFACT_ID = 'dynamic-theme-compose'
 }
 
 apply plugin: 'maven-publish'

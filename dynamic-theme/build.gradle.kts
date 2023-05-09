@@ -10,7 +10,7 @@ apply {
 }
 
 android {
-    namespace = "com.github.seyoungcho2.dynamictheme"
+    namespace = "io.github.seyoungcho2.dynamictheme"
     compileSdk = 33
 
     defaultConfig {

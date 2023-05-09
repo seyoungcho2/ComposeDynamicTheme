@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.github.seyoungcho2.dynamicthemesample"
+    namespace = "io.github.seyoungcho2.dynamicthemesample"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.github.seyoungcho2.dynamicthemesample"
+        applicationId = "io.github.seyoungcho2.dynamicthemesample"
         minSdk = 26
         targetSdk = 33
         versionCode = 1
@@ -44,7 +44,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":dynamic-theme"))
+    implementation("io.github.seyoungcho2:dynamic-theme:0.0.1")
 
     implementation("androidx.core:core-ktx:${LibraryVersions.androidCore}")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:${LibraryVersions.lifecycleRuntime}")
