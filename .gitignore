@@ -14,3 +14,5 @@
 .cxx
 local.properties
 /dynamic-theme/build/
+/.idea/
+/buildSrc/build/
