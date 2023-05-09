@@ -152,7 +152,7 @@ interface DynamicThemeService {
 
         fun getInstance(context: Context): DynamicThemeService {
             require(context is Application) {
-                throw IllegalArgumentException("Context must be application context")
+                throw IllegalArgumentException("Context must be Application Context")
             }
 
             return INSTANCE ?: synchronized(this) {
