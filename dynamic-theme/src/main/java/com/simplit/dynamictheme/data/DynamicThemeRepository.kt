@@ -40,7 +40,6 @@ internal class DynamicThemeRepositoryImpl internal constructor(
 }
 
 interface DynamicThemeRepository {
-
     /**
      * Register Current Theme Model
      */
