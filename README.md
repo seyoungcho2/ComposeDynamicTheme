@@ -29,7 +29,7 @@ dependencies {
 Table of Contents
 - [ThemeModelKey](https://github.com/seyoungcho2/ComposeDynamicTheme#thememodelkey)
 - [ThemeModel](https://github.com/seyoungcho2/ComposeDynamicTheme#thememodel)
-- [Register ThemeModels](https://github.com/seyoungcho2/ComposeDynamicTheme#registerthememodels)
+- [How to use DynamicThemeService](https://github.com/seyoungcho2/ComposeDynamicTheme#how-to-use-dynamicthemeservice)
 
 
 ## ThemeModelKey
@@ -89,12 +89,15 @@ See [Material2 Shapes](https://m2.material.io/design/shape/applying-shape-to-ui.
 ## How to use DynamicThemeService
 DynamicThemeService is Singleton object which has following responsibilities
 - Register Themes
-- Set Current Themes
-- Provide Currently Set Theme
+- Get Registered Themes
+- Set Current Theme
+- Get Current Theme
+- Provide Theme Composable with Current Theme
+- Provide Theme Composable with ThemeModel
 
 ### Register Themes
-Registering both single and multiple theme supported.
-#### Easy to register supported themes
+Registering both single and multiple theme supported. Default theme can also be changed.
+#### Single Theme Registration
 ```kotlin
 DynamicThemeService.getInstance(context).apply {
     registerThemeModel(
@@ -118,10 +121,10 @@ DynamicThemeService.getInstance(context).apply {
 }
 ```
 
-#### Supports Multiple theme registeration 
+#### Multiple Theme Registration 
 ```kotlin
 DynamicThemeService.getInstance(context).apply {
-    this.registerThemeModels(ThemeModels.getSupportedThemeModels())
+    registerThemeModels(ThemeModels.getSupportedThemeModels())
 }
 
 fun getSupportedThemeModels(): Map<ThemeModelKey, ThemeModel> = mapOf(
@@ -133,18 +136,66 @@ fun getSupportedThemeModels(): Map<ThemeModelKey, ThemeModel> = mapOf(
 )
 ```
 
+#### Register Default Theme
+```kotlin
+DynamicThemeService.getInstance(context).apply {
+    registerThemeModel(
+        ThemeModelKey.Default, ThemeModel(
+            colorPalette = ColorPalette(
+                lightModeColors = ColorPalettes.BlueColorPalette,
+                darkModeColors = ColorPalettes.BlueColorPalette,
+            )
+        )
+    )
+}
+```
+<br><br>
+
+### Get Registered Themes
+#### Get Single Registered Theme
+```kotlin
+DynamicThemeService.getInstance(applicationContext).getThemeModel(themeModelKey)
+```
+
+#### Get All Registered Themes
+```kotlin
+val registeredThemes: Map<ThemeModelKey, ThemeModel> = DynamicThemeService.getInstance(applicationContext).getRegisteredThemes()
+```
+
+<br><br>
+
 ### Set Current Theme
 ```kotlin
-coroutineScope.launch(Dispatchers.IO) {
-    val THEME_MODEL_KEY_BLUE = ThemeModelKey.of("Blue")
-    dynamicThemeService.setCurrentTheme(THEME_MODEL_KEY_BLUE)
+suspend fun setCurrentTheme(themeModelKey: ThemeModelKey){
+    DynamicThemeService.getInstance(applicationContext).setCurrentTheme(themeModelKey)
 }
 ```
 
-### Provide Currently Set Theme
+<br><br>
+
+### Get Current Theme
+#### Get Current Theme
+```kotlin
+val currentThemeModel: ThemeModel = async { DynamicThemeService.getInstance(applicationContext).getCurrentThemeModel() }.await()
+```
+
+#### Get Current Theme with Reactively with Flow
+```kotlin
+val currentThemeModelFlow: Flow<ThemeModel> = DynamicThemeService.getInstance(applicationContext).currentThemeModel
+```
+
+<br><br>
+
+### Provide Current Theme Composable
 ```kotlin
 DynamicThemeService.getInstance(applicationContext).ProvidesTheme {
     // Write Composable Functions
 }
+```
+
+<br><br>
+
+### Provide Theme Composable with ThemeModel
+
 
 
