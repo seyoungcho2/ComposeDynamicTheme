@@ -1,3 +1,5 @@
+import version.LibraryVersions
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -26,7 +28,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.2"
+        kotlinCompilerExtensionVersion = LibraryVersions.composeComplier
     }
 
     compileOptions {
@@ -40,25 +42,25 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.10.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.core:core-ktx:${LibraryVersions.androidCore}")
+    implementation("androidx.appcompat:appcompat:${LibraryVersions.appCompat}")
 
-    val composeBom = platform("androidx.compose:compose-bom:2023.01.00")
+    // Compose Support
+    val composeBom = platform("androidx.compose:compose-bom:${LibraryVersions.composeBom}")
     implementation(composeBom)
     androidTestImplementation(composeBom)
     implementation("androidx.compose.material:material")
     implementation("androidx.compose.ui:ui")
 
-    // Android Studio Preview support
+    // Compose Android Studio Preview support
     implementation("androidx.compose.ui:ui-tooling-preview")
     debugImplementation("androidx.compose.ui:ui-tooling")
 
-    //Data Store
-    implementation("androidx.datastore:datastore-preferences:1.0.0")
+    // Data Store
+    implementation("androidx.datastore:datastore-preferences:${LibraryVersions.datastorePreference}")
 
-    //Test
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-
+    // Test
+    testImplementation("junit:junit:${LibraryVersions.junit}")
+    androidTestImplementation("androidx.test.ext:junit:${LibraryVersions.androidJUnit}")
+    androidTestImplementation("androidx.test.espresso:espresso-core:${LibraryVersions.espresso}")
 }
