@@ -27,9 +27,9 @@ dependencies {
 
 # Features
 Table of Contents
-- [ThemeModelKey](https//github.com/seyoungcho2/ComposeDynamicTheme#thememodelkey)
-- [ThemeModel](https//github.com/seyoungcho2/ComposeDynamicTheme#thememodel)
-- [Register ThemeModels](https//github.com/seyoungcho2/ComposeDynamicTheme#registerthememodels)
+- [ThemeModelKey](https://github.com/seyoungcho2/ComposeDynamicTheme#thememodelkey)
+- [ThemeModel](https://github.com/seyoungcho2/ComposeDynamicTheme#thememodel)
+- [Register ThemeModels](https://github.com/seyoungcho2/ComposeDynamicTheme#registerthememodels)
 
 
 ## ThemeModelKey
