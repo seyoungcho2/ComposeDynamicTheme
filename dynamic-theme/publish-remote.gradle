@@ -1,20 +1,24 @@
+ext {
+    PUBLISH_GROUP_ID = 'io.github.seyoungcho2'
+    PUBLISH_VERSION = '0.0.1'
+    PUBLISH_ARTIFACT_ID = 'dynamic-theme'
+}
+
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
 task androidSourcesJar(type: Jar) {
     archiveClassifier.set('sources')
     if (project.plugins.findPlugin("com.android.library")) {
-        // For Android libraries
+        // For android libraries
         from android.sourceSets.main.java.srcDirs
         from android.sourceSets.main.kotlin.srcDirs
     } else {
-        // For pure Kotlin libraries, in case you have them
+        // For pure kotlin libraries, in case you have them
         from sourceSets.main.java.srcDirs
         from sourceSets.main.kotlin.srcDirs
     }
 }
-
-
 artifacts {
     archives androidSourcesJar
 }
@@ -27,7 +31,7 @@ afterEvaluate {
         publications {
             release(MavenPublication) {
                 // The coordinates of the library, being set from variables that
-                // we'll set up later
+                // we'll setup later
                 groupId PUBLISH_GROUP_ID
                 artifactId PUBLISH_ARTIFACT_ID
                 version PUBLISH_VERSION
@@ -36,36 +40,37 @@ afterEvaluate {
                 if (project.plugins.findPlugin("com.android.library")) {
                     from components.release
                 } else {
-                    artifact("$buildDir/libs/${project.getName()}-${version}.jar")
+                    from components.java
                 }
 
                 artifact androidSourcesJar
+//                artifacts javaDocJar
 
                 // Mostly self-explanatory metadata
                 pom {
-                    name = PUBLISH_ARTIFACT_ID
-                    description = PUBLISH_DESCRIPTION
-                    url = PUBLISH_URL
+                    name = 'dynamictheme'
+                    description = 'Dynamic Theme for Jetpack Compose'
+                    url = 'https://github.com/seyoungcho2/ComposeDynamicTheme'
                     licenses {
                         license {
-                            name = PUBLISH_LICENSE_NAME
-                            url = PUBLISH_LICENSE_URL
+                            name = 'The Apache Software License, Version 2.0'
+                            url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
                         }
                     }
                     developers {
                         developer {
-                            id = PUBLISH_DEVELOPER_ID
-                            name = PUBLISH_DEVELOPER_NAME
-                            email = PUBLISH_DEVELOPER_EMAIL
+                            id = 'SeyoungCho'
+                            name = 'SeyoungCho'
+                            email = "seyoungcho2@gmail.com"
+                            url = "https://github.com/seyoungcho2"
                         }
                     }
 
-                    // Version control info - if you're using GitHub, follow the
-                    // format as seen here
+                    // Version control info
                     scm {
-                        connection = PUBLISH_SCM_CONNECTION
-                        developerConnection = PUBLISH_SCM_DEVELOPER_CONNECTION
-                        url = PUBLISH_SCM_URL
+                        connection = 'scm:git:github.com/seyoungcho2/ComposeDynamicTheme.git'
+                        developerConnection = 'scm:git:ssh://github.com/seyoungcho2/ComposeDynamicTheme.git'
+                        url = 'https://github.com/seyoungcho2/ComposeDynamicTheme/tree/main'
                     }
                 }
             }
@@ -74,5 +79,10 @@ afterEvaluate {
 }
 
 signing {
+    useInMemoryPgpKeys(
+            rootProject.ext["signing.keyId"],
+            rootProject.ext["signing.key"],
+            rootProject.ext["signing.password"]
+    )
     sign publishing.publications
 }

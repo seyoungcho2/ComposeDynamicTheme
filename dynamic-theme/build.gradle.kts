@@ -5,14 +5,16 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
+apply {
+    from("publish-remote.gradle")
+}
+
 android {
     namespace = "com.github.seyoungcho2.dynamictheme"
     compileSdk = 33
 
     defaultConfig {
         minSdk = 26
-        targetSdk = 33
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -39,10 +41,6 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-}
-
-apply {
-    from("${rootDir}/scripts/publish-module.gradle")
 }
 
 dependencies {
