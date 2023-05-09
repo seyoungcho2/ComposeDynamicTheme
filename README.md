@@ -6,7 +6,7 @@
 </p>
 
 # What's Dynamic Theme
-Dynamic Theme is Material Design based Theme Management System for Android Jetpack Compose. Up until now, changing the theme on Android has been a very difficult task. Dynamic Theme was created to make Android's theme management easy. Theming can be applied by just adding ProvidesTheme on the top level declaration on the Jetpack Compose. 
+Dynamic Theme is a Material Design-based Theme Management System for Android Jetpack Compose. Up until now, changing the theme on Android has been a very difficult task. Dynamic Theme was created to make Android's theme management easy. Theming can be applied by simply adding 'ProvidesTheme' to the top-level declaration in Jetpack Compose.
 ```kotlin
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +21,9 @@ class MainActivity : ComponentActivity() {
 ```
 <br>
 
-Since this theme management system is based on Material2 knowledge on [Material2 Color System](https://m2.material.io/design/color/the-color-system.html) is needed to use this library.
+Since this theme management system is based on Material2, knowledge of the [Material2 Color System](https://m2.material.io/design/color/the-color-system.html) is required to use this library.
+
+# Preview
 <br><br>
 <p align="center">
     <img src="https://user-images.githubusercontent.com/59521473/237029773-3d173741-2bfd-47f9-82fe-6f7f6a6c561e.gif" alt="animated" />
@@ -69,22 +71,22 @@ Table of Contents
 
 
 ## ThemeModelKey
-ThemeModelKey is a key to register ThemeModel and access registered ThemeModel.
-- ThemeModelKey can be declared by using of function on ThemeModelKey
+The ThemeModelKey is used to register the ThemeModel and access the registered ThemeModel.
+- ThemeModelKey can be declared by using the function on ThemeModelKey
 ```kotlin
 val THEME_MODEL_KEY_BLUE = ThemeModelKey.of("Blue")
 ```
-- ThemeModelKey.Default is predefined for default theme. If current theme is not set then ThemeModelKey.Default is used get ThemeModel. Or you can also access default ThemeModel using it.
+- ThemeModelKey.Default is predefined for the default theme. If the current theme is not set, then ThemeModelKey.Default is used to retrieve the ThemeModel. Alternatively, you can also access the default ThemeModel using it.
 ```kotlin
 DynamicThemeService.getInstance(context).getThemeModel(ThemeModelKey.Default)
 ```
 <br><br>
 
 ## ThemeModel
-ThemeModel is data class for saving Themes. ThemeModel contains three parameters. 
-- ColorPalette: Color combinations for Theme. 
-- Typography: Configurations of typographies for Theme.
-- Shapes: Shape configuration for Theme
+The ThemeModel is a data class for saving themes. It contains three parameters:
+- ColorPalette: Color combinations for the theme.
+- Typography: Configurations of typography for the theme.
+- Shapes: Shape configurations for the theme."
 ```kotlin
 data class ThemeModel(
     val colorPalette: ColorPalette = ColorPalette(),
@@ -92,7 +94,7 @@ data class ThemeModel(
     val shapes: Shapes = Shapes()
 )
 ```
-I will briefly explain about this three parameters on following sections but you don't need to define all of them. All you have to do is set up a small part that you need to customize like below.
+I will briefly explain these three parameters in the following sections. However, you don't need to define all of them. You only need to set up the specific parts you want to customize, as shown below.
 ```kotlin
 val THEME_MODEL_KEY_BLUE = ThemeModelKey.of("Blue")
 private val THEME_MODEL_BLUE = ThemeModel(
@@ -104,7 +106,7 @@ private val THEME_MODEL_BLUE = ThemeModel(
 ```
 
 ### ColorPalette
-ColorPalette contains two parameters one is for Light Theme and the other is for Dark Theme. When device is set to night mode then darkModeColors is automatically used.
+The ColorPalette contains two parameters: 'lightModeColors' for the Light Theme and 'darkModeColors' for the Dark Theme. When the device is set to dark mode on system, the darkModeColors are automatically used.
 ```
 data class ColorPalette(
     val lightModeColors: Colors = DefaultLightColorPalette,
@@ -238,9 +240,13 @@ DynamicThemeService.getInstance(applicationContext).ProvidesTheme(themeModel) {
 }
 ```
 
+<br>
+
 # Find this repository useful?👍
 Support it by making star⭐! You can see __[stargazers](https://github.com/seyoungcho2/ComposeDynamicTheme/stargazers)__ here.
 Also, __[follow me](https://github.com/seyoungcho2)__ on GitHub for further updates 
+
+<br>
 
 # License
 ```xml
