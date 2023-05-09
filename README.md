@@ -29,19 +29,30 @@ Since this theme management system is based on Material2 knowledge on [Material2
 
 <br><br>
 
-# Download
+# Downloads
 
 ## Maven Central
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.seyoungcho2/dynamic-theme-compose.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.seyoungcho2/dynamic-theme-compose)<br>
 
+# Getting Started
+Add the mavenCentral() on project level(root level) build.gradle file:
+```gradle
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+```
 
-## Gradle
+Add dependency on module level build.gradle file:
+### build.gradle
 ```gradle
 dependencies {
     implementation "com.github.seyoungcho2:dynamic-theme-compose:0.0.1"
 }
 ```
-## Gradle.kts
+If using build.gradle.kts
+### build.gradle.kts
 ```kotlin
 dependencies {
     implementation("io.github.seyoungcho2:dynamic-theme-compose:0.0.1")
@@ -227,4 +238,23 @@ DynamicThemeService.getInstance(applicationContext).ProvidesTheme(themeModel) {
 }
 ```
 
+# Find this repository useful?👍
+Support it by making star⭐! You can see __[stargazers](https://github.com/seyoungcho2/ComposeDynamicTheme/stargazers)__ here.
+Also, __[follow me](https://github.com/seyoungcho2)__ on GitHub for further updates 
 
+# License
+```xml
+Designed and developed by 2023 seyoungcho2 (Seyoung Cho)
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
