@@ -6,7 +6,22 @@
 </p>
 
 # What's Dynamic Theme
-Dynamic Theme is Material Design based Theme Management System for Android Jetpack Compose. Up until now, changing the theme on Android has been a very difficult task. Dynamic Theme was created to make Android's theme management easy. Since this theme management system is based on Material2 you need to understand [Material2 Color System](https://m2.material.io/design/color/the-color-system.html) to use this library.
+Dynamic Theme is Material Design based Theme Management System for Android Jetpack Compose. Up until now, changing the theme on Android has been a very difficult task. Dynamic Theme was created to make Android's theme management easy. Theming can be applied by just adding ProvidesTheme on the top level declaration on the Jetpack Compose. 
+```kotlin
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            DynamicThemeService.getInstance(applicationContext).ProvidesTheme {
+                // Add Compose Functions
+            }
+        }
+    }
+}
+```
+<br>
+
+Since this theme management system is based on Material2 knowledge on [Material2 Color System](https://m2.material.io/design/color/the-color-system.html) is needed to use this library.
 <br><br>
 <p align="center">
     <img src="https://user-images.githubusercontent.com/59521473/237029773-3d173741-2bfd-47f9-82fe-6f7f6a6c561e.gif" alt="animated" />
@@ -19,7 +34,7 @@ Dynamic Theme is Material Design based Theme Management System for Android Jetpa
 ## Gradle
 ```gradle
 dependencies {
-    implementation "com.github.seyoungcho2:dynamictheme:1.0.0"
+    implementation "com.github.seyoungcho2:dynamictheme:0.0.1"
 }
 ```
 
