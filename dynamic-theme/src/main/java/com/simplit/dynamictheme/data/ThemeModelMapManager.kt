@@ -22,6 +22,10 @@ internal class ThemeModelMapManager internal constructor() {
         return themeModelMap[key] ?: defaultThemeModel
     }
 
+    fun containsKey(key: ThemeModelKey): Boolean {
+        return themeModelMap.containsKey(key)
+    }
+
     fun getSupportedThemeModels(): Map<ThemeModelKey, ThemeModel> = themeModelMap
 
     fun setDefaultThemeModel(themeModel: ThemeModel) {

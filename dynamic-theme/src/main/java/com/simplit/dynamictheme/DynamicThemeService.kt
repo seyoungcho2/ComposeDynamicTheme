@@ -14,6 +14,7 @@ import com.simplit.dynamictheme.provider.DynamicThemeProvider
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import java.lang.IllegalArgumentException
+import kotlin.jvm.Throws
 
 private class DynamicThemeServiceImpl internal constructor(
     context: Context
@@ -46,7 +47,7 @@ private class DynamicThemeServiceImpl internal constructor(
     }
 
     override fun registerThemeModels(themeModelPairs: Map<ThemeModelKey, ThemeModel>) {
-        themeModelPairs.forEach { key, themeModel ->
+        themeModelPairs.forEach { (key, themeModel) ->
             registerThemeModel(key = key, themeModel = themeModel)
         }
     }
@@ -67,6 +68,7 @@ private class DynamicThemeServiceImpl internal constructor(
         return currentThemeModel.first()
     }
 
+    @Throws(IllegalArgumentException::class)
     override suspend fun setCurrentThemeModel(key: ThemeModelKey) {
         dynamicThemeRepository.setCurrentThemeModel(key = key)
     }
@@ -133,6 +135,7 @@ interface DynamicThemeService {
 
     /**
      * Set current theme model which will be used on ui
+     * @throws IllegalArgumentException when [key] not Registered
      */
     suspend fun setCurrentThemeModel(key: ThemeModelKey)
 

@@ -19,6 +19,7 @@ internal class DynamicThemeRepositoryImpl internal constructor(
     private fun getData() = context.dataStore.data
 
     override suspend fun setCurrentThemeModel(key: ThemeModelKey) {
+        if(!themeModelMapManager.containsKey(key)) throw IllegalArgumentException("ThemeModelKey ${key} not registered ")
         context.dataStore.edit { preference ->
             preference[CURRENT_THEME_MODEL_STRING] = key.key
         }
