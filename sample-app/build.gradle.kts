@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.simplit.dynamicthemesample"
+    namespace = "com.github.seyoungcho2.dynamicthemesample"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.simplit.dynamicthemesample"
+        applicationId = "com.github.seyoungcho2.dynamicthemesample"
         minSdk = 26
         targetSdk = 33
         versionCode = 1

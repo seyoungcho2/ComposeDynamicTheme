@@ -1,0 +1,15 @@
+ext {
+    PUBLISH_GROUP_ID = "io.github.seyoungcho2"
+    PUBLISH_VERSION = "0.0.1"
+    PUBLISH_ARTIFACT_ID = "dynamictheme"
+    PUBLISH_DESCRIPTION = "Dynamic Theme for Jetpack Compose"
+    PUBLISH_URL = "https://github.com/seyoungcho2/ComposeDynamicTheme"
+    PUBLISH_LICENSE_NAME = "Apache License"
+    PUBLISH_LICENSE_URL = "https://github.com/seyoungcho2/ComposeDynamicTheme/blob/main/LICENSE"
+    PUBLISH_DEVELOPER_ID = "seyoungcho2"
+    PUBLISH_DEVELOPER_NAME = "SeyoungCho"
+    PUBLISH_DEVELOPER_EMAIL = "seyoungcho2@gmail.com"
+    PUBLISH_SCM_CONNECTION = "scm:git:github.com/seyoungcho2/ComposeDynamicTheme.git"
+    PUBLISH_SCM_DEVELOPER_CONNECTION = "scm:git:ssh://github.com:seyoungcho2/ComposeDynamicTheme.git"
+    PUBLISH_SCM_URL = "https://github.com/seyoungcho2/ComposeDynamicTheme/tree/main"
+}

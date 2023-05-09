@@ -14,7 +14,7 @@
         android:theme="@style/Theme.DynamicTheme"
         tools:targetApi="31">
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.github.seyoungcho2.dynamicthemesample.activity.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.DynamicTheme">

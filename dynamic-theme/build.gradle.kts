@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.simplit.dynamictheme"
+    namespace = "com.github.seyoungcho2.dynamictheme"
     compileSdk = 33
 
     defaultConfig {
@@ -39,6 +39,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+}
+
+apply {
+    from("${rootDir}/scripts/publish-module.gradle")
 }
 
 dependencies {
