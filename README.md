@@ -87,7 +87,7 @@ See [Material2 Shapes](https://m2.material.io/design/shape/applying-shape-to-ui.
 <br><br>
 
 ## How to use DynamicThemeService
-DynamicThemeService is Singleton object which has following responsibilities
+DynamicThemeService is a singleton object which has following responsibilities
 - Register Themes
 - Get Registered Themes
 - Set Current Theme
