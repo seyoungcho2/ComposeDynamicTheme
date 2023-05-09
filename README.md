@@ -31,10 +31,20 @@ Since this theme management system is based on Material2 knowledge on [Material2
 
 # Download
 
+## Maven Central
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.seyoungcho2/dynamic-theme-compose.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.seyoungcho2/dynamic-theme-compose)<br>
+
+
 ## Gradle
 ```gradle
 dependencies {
-    implementation "com.github.seyoungcho2:dynamictheme:0.0.1"
+    implementation "com.github.seyoungcho2:dynamic-theme-compose:0.0.1"
+}
+```
+## Gradle.kts
+```kotlin
+dependencies {
+    implementation("io.github.seyoungcho2:dynamic-theme-compose:0.0.1")
 }
 ```
 
