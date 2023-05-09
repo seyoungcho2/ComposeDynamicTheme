@@ -196,6 +196,10 @@ DynamicThemeService.getInstance(applicationContext).ProvidesTheme {
 <br><br>
 
 ### Provide Theme Composable with ThemeModel
-
+```kotlin
+DynamicThemeService.getInstance(applicationContext).ProvidesTheme(themeModel) {
+    // Write Composable Functions
+}
+```
 
 
