@@ -109,8 +109,8 @@ private val THEME_MODEL_BLUE = ThemeModel(
 The ColorPalette contains two parameters: 'lightModeColors' for the Light Theme and 'darkModeColors' for the Dark Theme. When the device is set to dark mode on system, the darkModeColors are automatically used.
 ```
 data class ColorPalette(
-    val lightModeColors: Colors = DefaultLightColorPalette,
-    val darkModeColors: Colors = lightModeColors
+    val lightModeColors: Colors = LightModeColorPalette,
+    val darkModeColors: Colors = DarkModeColorPalette
 )
 ```
 Colors class is Material2 class which consist of primary, primaryVariant, secondary, secondaryVariant, background, surface, error, onPrimary, onSecondary, onBackground, onSurface, onError, isLight variables. You can find more about color system on [Material2 Color System](https://m2.material.io/design/color/the-color-system.html), [Material2 Color Document](https://developer.android.com/reference/kotlin/androidx/compose/material/Colors)
