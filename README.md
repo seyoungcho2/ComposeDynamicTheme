@@ -125,7 +125,7 @@ See [Material2 Shapes](https://m2.material.io/design/shape/applying-shape-to-ui.
 <br><br>
 
 ## How to use DynamicThemeService
-DynamicThemeService is initialized as a singleton object by using DynamicThemeService.get().
+DynamicThemeService is initialized as a singleton object by using DynamicThemeService.init(applicationContext). You can access singleton object by using DynamicThemeService.get(). 
 it has following responsibilities:
 - Initialize in App 
 - Register Themes
