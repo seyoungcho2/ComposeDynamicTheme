@@ -125,7 +125,8 @@ See [Material2 Shapes](https://m2.material.io/design/shape/applying-shape-to-ui.
 <br><br>
 
 ## How to use DynamicThemeService
-DynamicThemeService is a singleton object which has following responsibilities
+DynamicThemeService is initialized as a singleton object by using DynamicThemeService.getInstance(applicationContext).
+it has following responsibilities:
 - Register Themes
 - Get Registered Themes
 - Set Current Theme
@@ -137,7 +138,7 @@ DynamicThemeService is a singleton object which has following responsibilities
 Registering both single and multiple theme supported. Default theme can also be changed.
 #### Single Theme Registration
 ```kotlin
-DynamicThemeService.getInstance(context).apply {
+DynamicThemeService.getInstance(applicationContext).apply {
     registerThemeModel(
         ThemeModelKey.of("Pink"), ThemeModel(
             colorPalette = ColorPalette(
@@ -161,7 +162,7 @@ DynamicThemeService.getInstance(context).apply {
 
 #### Multiple Theme Registration 
 ```kotlin
-DynamicThemeService.getInstance(context).apply {
+DynamicThemeService.getInstance(applicationContext).apply {
     registerThemeModels(ThemeModels.getSupportedThemeModels())
 }
 
@@ -176,7 +177,7 @@ fun getSupportedThemeModels(): Map<ThemeModelKey, ThemeModel> = mapOf(
 
 #### Register Default Theme
 ```kotlin
-DynamicThemeService.getInstance(context).apply {
+DynamicThemeService.getInstance(applicationContext).apply {
     registerThemeModel(
         ThemeModelKey.Default, ThemeModel(
             colorPalette = ColorPalette(
