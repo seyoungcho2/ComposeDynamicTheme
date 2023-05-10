@@ -1,8 +1,8 @@
 package io.github.seyoungcho2.dynamicthemesample.theme
 
-import com.github.seyoungcho2.dynamictheme.model.ColorPalette
-import com.github.seyoungcho2.dynamictheme.model.ThemeModel
-import com.github.seyoungcho2.dynamictheme.model.ThemeModelKey
+import io.github.seyoungcho2.dynamictheme.model.ColorPalette
+import io.github.seyoungcho2.dynamictheme.model.ThemeModel
+import io.github.seyoungcho2.dynamictheme.model.ThemeModelKey
 import io.github.seyoungcho2.dynamicthemesample.theme.color.ColorPalettes
 import io.github.seyoungcho2.dynamicthemesample.theme.shape.Shapes
 

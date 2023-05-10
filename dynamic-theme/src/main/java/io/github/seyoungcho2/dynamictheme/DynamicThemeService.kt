@@ -18,7 +18,7 @@ import kotlin.jvm.Throws
 
 private class DynamicThemeServiceImpl internal constructor(
     context: Context
-) : io.github.seyoungcho2.dynamictheme.DynamicThemeService {
+) : DynamicThemeService {
     private val themeModelMapManager: ThemeModelMapManager = ThemeModelMapManager()
     private val dynamicThemeRepository: DynamicThemeRepository =
         DynamicThemeRepositoryImpl(context, themeModelMapManager)
@@ -156,18 +156,21 @@ interface DynamicThemeService {
     fun getDefaultThemeModel(): ThemeModel
 
     companion object {
-        private var INSTANCE: io.github.seyoungcho2.dynamictheme.DynamicThemeService? = null
-
-        fun getInstance(context: Context): io.github.seyoungcho2.dynamictheme.DynamicThemeService {
+        private var INSTANCE: DynamicThemeService? = null
+        fun init(context: Context): DynamicThemeService {
             require(context is Application) {
                 throw IllegalArgumentException("Context must be Application Context")
             }
 
-            return io.github.seyoungcho2.dynamictheme.DynamicThemeService.Companion.INSTANCE ?: synchronized(this) {
-                io.github.seyoungcho2.dynamictheme.DynamicThemeService.Companion.INSTANCE
-                    ?: io.github.seyoungcho2.dynamictheme.DynamicThemeServiceImpl(context)
-                        .also { io.github.seyoungcho2.dynamictheme.DynamicThemeService.Companion.INSTANCE = it }
+            return INSTANCE ?: synchronized(this) {
+                INSTANCE
+                    ?: DynamicThemeServiceImpl(context)
+                        .also { INSTANCE = it }
             }
+        }
+
+        fun get(): DynamicThemeService {
+            return INSTANCE ?: throw IllegalArgumentException("DynamicThemeService not initialized")
         }
     }
 }

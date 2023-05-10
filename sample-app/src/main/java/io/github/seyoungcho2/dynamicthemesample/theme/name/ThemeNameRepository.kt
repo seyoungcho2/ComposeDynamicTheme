@@ -1,6 +1,6 @@
 package io.github.seyoungcho2.dynamicthemesample.theme.name
 
-import com.github.seyoungcho2.dynamictheme.model.ThemeModelKey
+import io.github.seyoungcho2.dynamictheme.model.ThemeModelKey
 import io.github.seyoungcho2.dynamicthemesample.theme.ThemeModels
 
 class ThemeNameRepository {

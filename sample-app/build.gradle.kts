@@ -44,7 +44,7 @@ android {
 }
 
 dependencies {
-    implementation("io.github.seyoungcho2:dynamic-theme:0.0.1")
+    implementation(project(":dynamic-theme"))
 
     implementation("androidx.core:core-ktx:${LibraryVersions.androidCore}")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:${LibraryVersions.lifecycleRuntime}")

@@ -9,10 +9,10 @@ import androidx.lifecycle.createSavedStateHandle
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
+import io.github.seyoungcho2.dynamictheme.DynamicThemeService
+import io.github.seyoungcho2.dynamictheme.model.ThemeModel
+import io.github.seyoungcho2.dynamictheme.model.ThemeModelKey
 import io.github.seyoungcho2.dynamicthemesample.DynamicThemeApp
-import com.github.seyoungcho2.dynamictheme.DynamicThemeService
-import com.github.seyoungcho2.dynamictheme.model.ThemeModel
-import com.github.seyoungcho2.dynamictheme.model.ThemeModelKey
 import io.github.seyoungcho2.dynamicthemesample.theme.name.ThemeNameRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
