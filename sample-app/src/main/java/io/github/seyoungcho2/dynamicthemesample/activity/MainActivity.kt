@@ -37,6 +37,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import io.github.seyoungcho2.dynamictheme.DynamicThemeService
 import io.github.seyoungcho2.dynamicthemesample.R
 import io.github.seyoungcho2.dynamicthemesample.composable.SampleErrorCard
 import io.github.seyoungcho2.dynamicthemesample.composable.SampleItemCard
@@ -61,7 +62,7 @@ class MainActivity : ComponentActivity() {
             var isErrorVisible by remember { mutableStateOf(false) }
             var isNotificationVisible by remember { mutableStateOf(false) }
 
-            mainViewModel.ProvidesTheme {
+            DynamicThemeService.get().ProvidesTheme {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
