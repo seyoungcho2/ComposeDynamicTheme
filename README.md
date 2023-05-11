@@ -134,6 +134,7 @@ it has following responsibilities:
 - Get Current Theme
 - Provide Theme Composable with Current Theme
 - Provide Theme Composable with ThemeModel
+- How access theme variables on Composable
 
 ### Initialize on App
 Use DynamicThemeService.init(applicationContext) in Application to make DynamicThemeService initialized.
@@ -253,9 +254,37 @@ DynamicThemeService.get().ProvidesTheme(themeModel) {
 }
 ```
 
-<br>
+<br><br>
 
-# Find this repository useful?👍
+### How to access theme variables
+- Accessing color can be done by using 'MaterialTheme.colors.[Color Name]' 
+```kotlin
+Box(
+    modifier = Modifier
+        .fillMaxSize()
+        .background(MaterialTheme.colors.background)
+)
+```
+- Accessing typography can be done by using 'MaterialTheme.typography.[Typography Name]' 
+```kotlin
+Text(
+    text = "Themes",
+    style = MaterialTheme.typography.h5
+)
+```
+- Accessing shapes can be done by using 'MaterialTheme.shapes.[Shape Name]'
+```kotlin
+Box(
+    modifier = Modifier
+        .fillMaxSize()
+        .clip(MaterialTheme.shapes.medium)
+)
+```
+
+<br><br>
+
+
+## Find this repository useful?👍
 - Support it by making star⭐! <br> You can see __[stargazers](https://github.com/seyoungcho2/ComposeDynamicTheme/stargazers)__ here.<br>
 - Also, __[follow me](https://github.com/seyoungcho2)__ on GitHub for further updates 
 
