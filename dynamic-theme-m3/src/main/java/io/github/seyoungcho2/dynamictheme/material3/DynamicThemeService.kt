@@ -1,16 +1,16 @@
-package io.github.seyoungcho2.dynamictheme
+package io.github.seyoungcho2.dynamictheme.material3
 
 import android.app.Application
 import android.content.Context
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import io.github.seyoungcho2.dynamictheme.data.DynamicThemeRepository
-import io.github.seyoungcho2.dynamictheme.data.DynamicThemeRepositoryImpl
-import io.github.seyoungcho2.dynamictheme.data.ThemeModelMapManager
-import io.github.seyoungcho2.dynamictheme.model.ThemeModel
-import io.github.seyoungcho2.dynamictheme.model.ThemeModelKey
-import io.github.seyoungcho2.dynamictheme.provider.DynamicThemeProvider
+import io.github.seyoungcho2.dynamictheme.material3.data.DynamicThemeRepository
+import io.github.seyoungcho2.dynamictheme.material3.data.DynamicThemeRepositoryImpl
+import io.github.seyoungcho2.dynamictheme.material3.data.ThemeModelMapManager
+import io.github.seyoungcho2.dynamictheme.material3.model.ThemeModel
+import io.github.seyoungcho2.dynamictheme.material3.model.ThemeModelKey
+import io.github.seyoungcho2.dynamictheme.material3.provider.DynamicThemeProvider
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import java.lang.IllegalArgumentException
