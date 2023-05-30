@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 rootProject.name = "DynamicTheme"
 include ':sample-app'
 include ':dynamic-theme'
+include ':dynamic-theme-m3'
