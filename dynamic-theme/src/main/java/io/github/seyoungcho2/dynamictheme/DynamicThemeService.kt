@@ -156,6 +156,7 @@ interface DynamicThemeService {
     fun getDefaultThemeModel(): ThemeModel
 
     companion object {
+        @Volatile
         private var INSTANCE: DynamicThemeService? = null
         fun init(context: Context): DynamicThemeService {
             require(context is Application) {
