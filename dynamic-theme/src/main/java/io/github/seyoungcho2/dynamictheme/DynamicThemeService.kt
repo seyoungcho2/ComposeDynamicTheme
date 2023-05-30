@@ -13,8 +13,6 @@ import io.github.seyoungcho2.dynamictheme.model.ThemeModelKey
 import io.github.seyoungcho2.dynamictheme.provider.DynamicThemeProvider
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
-import java.lang.IllegalArgumentException
-import kotlin.jvm.Throws
 
 private class DynamicThemeServiceImpl internal constructor(
     context: Context
@@ -158,6 +156,8 @@ interface DynamicThemeService {
     companion object {
         @Volatile
         private var INSTANCE: DynamicThemeService? = null
+
+        @Throws(IllegalArgumentException::class)
         fun init(context: Context): DynamicThemeService {
             require(context is Application) {
                 throw IllegalArgumentException("Context must be Application Context")
