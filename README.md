@@ -21,18 +21,23 @@ class MainActivity : ComponentActivity() {
 ```
 <br>
 
-Since this theme management system is based on Material2, knowledge of the [Material2 Color System](https://m2.material.io/design/color/the-color-system.html) is required to use this library.
+### Dynamic Theme is now supporting on Material3
+Since this theme management system is based on Material Designs, knowledge of the Material Design System is required to use this library.
+- [Material2 Design System](https://m2.material.io/design/introduction)
+- [Material3 Design System](https://m3.material.io/styles)
+
+<br>
 
 # Preview
 <br><br>
 <p align="center">
-    <img src="https://user-images.githubusercontent.com/59521473/237029773-3d173741-2bfd-47f9-82fe-6f7f6a6c561e.gif" alt="animated" />
+    <img src="https://github.com/seyoungcho2/ComposeDynamicTheme/assets/59521473/2c6119cb-6b1b-43db-b40c-8522dad372d0" alt="animated" />
 </p>
+
 
 <br><br>
 
 # Downloads
-
 ## Maven Central
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.seyoungcho2/dynamic-theme-compose.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.seyoungcho2/dynamic-theme-compose)<br>
 
@@ -50,16 +55,25 @@ Add dependency on module level build.gradle file:
 ### build.gradle
 ```gradle
 dependencies {
-    implementation "io.github.seyoungcho2:dynamic-theme-compose:0.0.2"
+    // Dynamic Theme support for Material2
+    implementation "io.github.seyoungcho2:dynamic-theme-compose:0.0.3"
+    
+    // Dynamic Theme support for Mateiral3
+    implementation "io.github.seyoungcho2:dynamic-theme-compose-material3:0.0.3"
 }
 ```
 If using build.gradle.kts
 ### build.gradle.kts
 ```kotlin
 dependencies {
-    implementation("io.github.seyoungcho2:dynamic-theme-compose:0.0.2")
+    // Dynamic Theme support for Material2
+    implementation("io.github.seyoungcho2:dynamic-theme-compose:0.0.3")
+        
+    // Dynamic Theme support for Mateiral3
+    implementation("io.github.seyoungcho2:dynamic-theme-compose-material3:0.0.3")
 }
 ```
+
 
 <br><br>
 
@@ -84,7 +98,7 @@ DynamicThemeService.get().getThemeModel(ThemeModelKey.Default)
 
 ## ThemeModel
 The ThemeModel is a data class for saving themes. It contains three parameters:
-- ColorPalette: Color combinations for the theme.
+- ColorPalette: Light mode and dark mode color combinations for the theme.
 - Typography: Configurations of typography for the theme.
 - Shapes: Shape configurations for the theme."
 ```kotlin
@@ -94,16 +108,15 @@ data class ThemeModel(
     val shapes: Shapes = Shapes()
 )
 ```
-I will briefly explain these three parameters in the following sections. However, you don't need to define all of them. You only need to set up the specific parts you want to customize, as shown below.
-```kotlin
-val THEME_MODEL_KEY_BLUE = ThemeModelKey.of("Blue")
-private val THEME_MODEL_BLUE = ThemeModel(
-    colorPalette = ColorPalette(
-        lightModeColors = ColorPalettes.BlueColorPalette,
-        darkModeColors = ColorPalettes.BlueColorPalette,
-    )
-)
-```
+
+ThemeModel looks same on Material2 and Material3, but inside ThemeModel is little bit different. It's caused by the classes used in Material2 and Material3 are different. <br>
+<br>
+Check what your project is using and make ThemeModel
+
+<br>
+
+## Material2 ThemeModel
+Material2 ThemeModel consists of three parameters: ColorPalette, Typography, Shapes. <br><br>
 
 ### ColorPalette
 The ColorPalette contains two parameters: 'lightModeColors' for the Light Theme and 'darkModeColors' for the Dark Theme. When the device is set to dark mode on system, the darkModeColors are automatically used.
@@ -113,6 +126,7 @@ data class ColorPalette(
     val darkModeColors: Colors = DarkModeColorPalette
 )
 ```
+
 Colors class is Material2 class which consist of primary, primaryVariant, secondary, secondaryVariant, background, surface, error, onPrimary, onSecondary, onBackground, onSurface, onError, isLight variables. You can find more about color system on [Material2 Color System](https://m2.material.io/design/color/the-color-system.html), [Material2 Color Document](https://developer.android.com/reference/kotlin/androidx/compose/material/Colors)
 
 
@@ -124,20 +138,33 @@ See [Material2 Shapes](https://m2.material.io/design/shape/applying-shape-to-ui.
 
 <br><br>
 
-## How to use DynamicThemeService
-DynamicThemeService is initialized as a singleton object by using DynamicThemeService.init(applicationContext). You can access singleton object by using DynamicThemeService.get(). 
-it has following responsibilities:
-- Initialize in App 
-- Register Themes
-- Get Registered Themes
-- Set Current Theme
-- Get Current Theme
-- Provide Theme Composable with Current Theme
-- Provide Theme Composable with ThemeModel
-- How access theme variables on Composable
+## Material3 ThemeModel
+Material3 ThemeModel consists of three parameters: ColorPalette, Typography, Shapes. <br><br>
 
-### Initialize on App
-Use DynamicThemeService.init(applicationContext) in Application to make DynamicThemeService initialized.
+### ColorPalette
+The ColorPalette contains two parameters: 'lightModeColors' for the Light Theme and 'darkModeColors' for the Dark Theme. When the device is set to dark mode on system, the darkModeColors are automatically used.
+```
+data class ColorPalette(
+    val lightModeColors: ColorScheme = DefaultLightColorPalette,
+    val darkModeColors: ColorScheme = DefaultDarkColorPalette
+)
+```
+
+ColorScheme class is Material3 class which consist of 29 colors which are used for coloring the application. You can find more about color system on [Material3 Color System](https://m3.material.io/styles/color/overview), [Material3 Color Document](https://developer.android.com/reference/kotlin/androidx/compose/material3/ColorScheme)
+
+
+### Typography
+Typography contains design data for characters. This is also part of Material3 Typography System. Material3 typography enables us to fine-tune control for designing texts. See [Material2 Typography](https://m3.material.io/styles/typography/overview)
+
+### Shapes
+See [Material2 Shapes](https://m3.material.io/styles/shape/overview) document
+
+<br><br>
+
+
+
+## How to use DynamicThemeService
+DynamicThemeService is initialized as a singleton object by using DynamicThemeService.init(applicationContext). You must initalize DynamicThemeService to use it.
 ```kotlin
 class DynamicThemeApp : Application() {
     override fun onCreate() {
@@ -146,6 +173,23 @@ class DynamicThemeApp : Application() {
     }
 }
 ```
+
+After initialized DynamicThemeService can be accessed by using DynamicThemeService.get(). <br><br>
+```kotlin
+val dynamicThemeService: DynamicThemeService = DynamicThemeService.get()
+```
+
+### DynamicThemeService features
+Dynamic has following features:
+- Register Themes
+- Get Registered Themes
+- Set Current Theme
+- Get Current Theme
+- Provide Theme Composable with Current Theme
+- Provide Theme Composable with ThemeModel
+- How access theme variables on Composable
+
+<br>
 
 ### Register Themes
 Registering both single and multiple theme supported. Default theme can also be changed.
