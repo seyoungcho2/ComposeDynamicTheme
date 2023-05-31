@@ -306,6 +306,7 @@ DynamicThemeService.get().ProvidesTheme(themeModel) {
 <br><br>
 
 ### How to access theme variables
+#### Accessing theme variables in Material2
 - Accessing color can be done by using 'MaterialTheme.colors.[Color Name]' 
 ```kotlin
 Box(
@@ -327,6 +328,30 @@ Box(
     modifier = Modifier
         .fillMaxSize()
         .clip(MaterialTheme.shapes.medium)
+)
+```
+
+#### Accessing theme variables in Material3
+- Accessing color can be done by using 'MaterialTheme.colorScheme.[Color Name]' 
+```kotlin
+Box(
+    modifier = Modifier
+        .fillMaxSize()
+        .background(MaterialTheme.colorScheme.background)
+)
+```
+- Accessing typography can be done by using 'MaterialTheme.typography.[Typography Name]' 
+```kotlin
+Text(
+    text = "Themes",
+    style = MaterialTheme.typography.bodyLarge
+)
+```
+- Accessing shapes can be done by using 'MaterialTheme.shapes.[Shape Name]'
+```kotlin
+Card(
+    modifier = modifier,
+    shape = MaterialTheme.shapes.extraLarge
 )
 ```
 
