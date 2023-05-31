@@ -159,10 +159,10 @@ ColorScheme class is Material3 class which consist of 29 colors which are used f
 
 
 ### Typography
-Typography contains design data for characters. This is also part of Material3 Typography System. Material3 typography enables us to fine-tune control for designing texts. See [Material2 Typography](https://m3.material.io/styles/typography/overview)
+Typography contains design data for characters. This is also part of Material3 Typography System. Material3 typography enables us to fine-tune control for designing texts. See [Material3 Typography](https://m3.material.io/styles/typography/overview)
 
 ### Shapes
-See [Material2 Shapes](https://m3.material.io/styles/shape/overview) document
+See [Material3 Shapes](https://m3.material.io/styles/shape/overview) document
 
 <br><br>
 
