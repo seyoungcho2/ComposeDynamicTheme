@@ -16,3 +16,4 @@ rootProject.name = "DynamicTheme"
 include ':sample-app'
 include ':dynamic-theme'
 include ':dynamic-theme-m3'
+include ':sample-app-material3'
