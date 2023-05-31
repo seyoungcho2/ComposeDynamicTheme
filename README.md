@@ -44,7 +44,8 @@ Since this theme management system is based on Material Designs, knowledge of th
 
 # Downloads
 ## Maven Central
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.seyoungcho2/dynamic-theme-compose.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.seyoungcho2/dynamic-theme-compose)<br>
+Material2 : [![Maven Central](https://img.shields.io/maven-central/v/io.github.seyoungcho2/dynamic-theme-compose.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.seyoungcho2/dynamic-theme-compose)<br>
+Material3 : [![Maven Central](https://img.shields.io/maven-central/v/io.github.seyoungcho2/dynamic-theme-compose-material3.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.seyoungcho2/dynamic-theme-compose-material3)<br>
 
 # Getting Started
 Add the mavenCentral() on project level(root level) build.gradle file:
