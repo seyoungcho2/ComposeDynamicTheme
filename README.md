@@ -5,7 +5,11 @@
   <a href="https://android-arsenal.com/api?level=26"><img alt="API" src="https://img.shields.io/badge/API-26%2B-brightgreen.svg?style=flat"/></a>
 </p>
 
+<br>
+
 ### 😎 DynamicTheme now supports Material3.
+
+<br>
 
 # What's Dynamic Theme
 Dynamic Theme is a Material Design-based Theme Management System for Android Jetpack Compose. Up until now, changing the theme on Android has been a very difficult task. Dynamic Theme was created to make Android's theme management easy. Theming can be applied by simply adding 'ProvidesTheme' to the top-level declaration in Jetpack Compose.
