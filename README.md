@@ -2,6 +2,7 @@
 
 <p align="center">
   <a href="https://devlibrary.withgoogle.com/products/android/repos/seyoungcho2-ComposeDynamicTheme"><img alt="API" src="https://img.shields.io/badge/Google%20DevLibrary-Seyoung%20Cho-orange?style=flat&logo=android"/></a>
+  <a href="https://github.com/jetpack-compose/jetpack-compose-awesome"><img alt="API" src="https://img.shields.io/badge/Jetpack%20Compose%20Awesome-Compose%20Dynamic%20Theme-green?style=flat&logo=jetpackcompose"/></a>
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
   <a href="https://android-arsenal.com/api?level=26"><img alt="API" src="https://img.shields.io/badge/API-26%2B-brightgreen.svg?style=flat"/></a>
 </p>
