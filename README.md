@@ -66,7 +66,7 @@ dependencies {
     // Dynamic Theme support for Material2
     implementation "io.github.seyoungcho2:dynamic-theme-compose:0.0.3"
     
-    // Dynamic Theme support for Mateiral3
+    // Dynamic Theme support for Material3
     implementation "io.github.seyoungcho2:dynamic-theme-compose-material3:0.0.3"
 }
 ```
@@ -77,7 +77,7 @@ dependencies {
     // Dynamic Theme support for Material2
     implementation("io.github.seyoungcho2:dynamic-theme-compose:0.0.3")
         
-    // Dynamic Theme support for Mateiral3
+    // Dynamic Theme support for Material3
     implementation("io.github.seyoungcho2:dynamic-theme-compose-material3:0.0.3")
 }
 ```
