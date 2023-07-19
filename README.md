@@ -10,7 +10,8 @@
 <br>
 
 ### 🚀 Introduced in Android Dev Notes [Link](https://twitter.com/androiddevnotes/status/1664061139569766400)
-### Next Roadmap is to support change color on status bar
+### ✅ Next Roadmap
+- support change color on status bar
 
 <br>
 
